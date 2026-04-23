@@ -1,0 +1,30 @@
+export interface Deserto {
+  id: number | string;
+  num_requerimento?: string | null;
+  status?: string | null;
+  num_processo?: string | null;
+  nome?: string | null;
+  cpf_cnpj?: string | null;
+  diretoria?: string | null;
+  ugrhi?: string | null;
+  municipio?: string | null;
+  tipo_requerimento?: string | null;
+  data_inicio_boletim?: string | null;
+  fiscal?: string | null;
+  num_oficio?: string | null;
+  auto_inspecao?: string | null;
+  enquadramento?: string | null;
+  data_conclusao?: string | null;
+  data_envio?: string | null;
+  numero_ar?: string | null;
+  data_entrega?: string | null;
+  situacao_entrega?: string | null;
+  data_manifest?: string | null;
+  requerimento?: string | null;
+  num_req_novo?: string | null;
+  acao_final?: string | null;
+  boletim?: string | null;
+  created?: string | null;
+  updated?: string | null;
+  deleted_at?: string | null;
+}

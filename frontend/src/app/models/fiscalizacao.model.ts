@@ -1,0 +1,33 @@
+export interface Fiscalizacao {
+  id: number | string;
+  nome?: string | null;
+  status?: string | null;
+  municipio?: string | null;
+  cpf_cnpj?: string | null;
+  diretoria?: string | null;
+  ugrhi?: string | null;
+  fiscal?: string | null;
+  data_fiscalizacao?: string | null;
+  coordenadas?: string | null;
+  usos?: string | null;
+  autos_fisc?: string | null;
+  autos_soe?: string | null;
+  processo_sei?: string | null;
+  auto_inspecao?: string | null;
+  auto_infracao?: string | null;
+  enquadramento?: string | null;
+  prazo_dias?: number | null;
+  data_envio?: string | null;
+  numero_ar?: string | null;
+  data_entrega?: string | null;
+  situacao_entrega?: string | null;
+  data_manifest?: string | null;
+  requerimento?: string | null;
+  num_requerimento?: string | null;
+  vai_multar?: boolean | number | null;
+  boletim?: string | null;
+  fotos?: string | null;
+  created?: string | null;
+  updated?: string | null;
+  deleted_at?: string | null;
+}

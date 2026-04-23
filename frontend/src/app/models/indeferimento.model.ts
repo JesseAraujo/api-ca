@@ -1,0 +1,33 @@
+export interface Indeferimento {
+  id: number | string;
+  num_requerimento?: string | null;
+  status?: string | null;
+  portaria?: string | null;
+  data_publicacao?: string | null;
+  diretoria?: string | null;
+  motivo?: string | null;
+  num_processo?: string | null;
+  nome?: string | null;
+  municipio?: string | null;
+  tipo_requerimento?: string | null;
+  notificar?: string | null;
+  data_prazo?: string | null;
+  novo_requerimento?: string | null;
+  data_inicio_boletim?: string | null;
+  fiscal?: string | null;
+  num_oficio?: string | null;
+  auto_inspecao?: string | null;
+  auto_infracao?: string | null;
+  enquadramento?: string | null;
+  data_envio?: string | null;
+  numero_ar?: string | null;
+  data_entrega?: string | null;
+  situacao_entrega?: string | null;
+  requerimento?: string | null;
+  num_req_novo?: string | null;
+  acao_final?: string | null;
+  boletim?: string | null;
+  created?: string | null;
+  updated?: string | null;
+  deleted_at?: string | null;
+}
