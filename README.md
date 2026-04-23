@@ -51,6 +51,9 @@ No painel da Vercel, configure:
 - `DB_USER=je189758`
 - `DB_PASSWORD=SUA_SENHA`
 - `DB_NAME=je189758_GppApp`
+- `DB_SSL=false` (use `true` se seu provedor exigir SSL)
+- `DB_CONNECTION_LIMIT=3`
+- `DB_CONNECT_TIMEOUT_MS=10000`
 
 `PORT` não é necessário na Vercel.
 
@@ -66,6 +69,7 @@ vercel --prod
 ## 5) Endpoints
 
 - `GET /health`
+- `GET /health/db` (retorna status de conexão com banco + código de erro)
 - `GET|POST /api/desertos`
 - `GET|PUT|DELETE /api/desertos/:id`
 - `GET|POST /api/fiscalizacoes`
@@ -82,3 +86,4 @@ vercel --prod
 - Para `users`, o campo `password_hash` é aceito em `POST/PUT`, mas não é retornado no `GET`.
 - Para registros com chave primária em `id`, envie `id` no `POST`.
 - Em `rate_limits`, a chave primária é composta por `scope` + `ip_hash`.
+- Se a API responder erro em produção, verifique `GET /health/db` para diagnóstico rápido de conexão.
