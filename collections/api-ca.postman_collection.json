@@ -1,0 +1,224 @@
+{
+  "info": {
+    "_postman_id": "5c90cd12-6b1b-48d6-8e50-6dd3a913bc2a",
+    "name": "API CA - je189758_GppApp CRUD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Coleção CRUD para as tabelas: desertos, fiscalizacoes, indeferimentos, users e rate_limits."
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "desertoId", "value": "deserto_demo_001" },
+    { "key": "fiscalizacaoId", "value": "fiscal_demo_001" },
+    { "key": "indeferimentoId", "value": "indef_demo_001" },
+    { "key": "userId", "value": "user_demo_001" },
+    { "key": "scope", "value": "login" },
+    { "key": "ipHash", "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" }
+  ],
+  "item": [
+    {
+      "name": "Desertos",
+      "item": [
+        {
+          "name": "Listar desertos",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/desertos?limit=50&offset=0" }
+        },
+        {
+          "name": "Buscar deserto por id",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/desertos/{{desertoId}}" }
+        },
+        {
+          "name": "Criar deserto",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{desertoId}}\",\n  \"num_requerimento\": \"20260001965-HTQ\",\n  \"status\": \"Boletim Enviado\",\n  \"nome\": \"Fazenda Exemplo\",\n  \"municipio\": \"Itapeva\",\n  \"data_inicio_boletim\": \"2026-04-10\",\n  \"fiscal\": \"Fiscal Demo\"\n}"
+            },
+            "url": "{{baseUrl}}/api/desertos"
+          }
+        },
+        {
+          "name": "Atualizar deserto",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Boletim Concluído\",\n  \"acao_final\": \"Arquivado\",\n  \"data_conclusao\": \"2026-04-20\"\n}"
+            },
+            "url": "{{baseUrl}}/api/desertos/{{desertoId}}"
+          }
+        },
+        {
+          "name": "Excluir deserto",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/desertos/{{desertoId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Fiscalizacoes",
+      "item": [
+        {
+          "name": "Listar fiscalizacoes",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/fiscalizacoes?limit=50&offset=0" }
+        },
+        {
+          "name": "Buscar fiscalizacao por id",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/fiscalizacoes/{{fiscalizacaoId}}" }
+        },
+        {
+          "name": "Criar fiscalizacao",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{fiscalizacaoId}}\",\n  \"nome\": \"Auto Posto Exemplo\",\n  \"status\": \"Inspeção Concluída\",\n  \"municipio\": \"Itapetininga\",\n  \"cpf_cnpj\": \"66.720.533.0001-56\",\n  \"fiscal\": \"Magali\",\n  \"data_fiscalizacao\": \"2026-03-12\",\n  \"vai_multar\": \"NÃO\",\n  \"fotos\": \"[]\"\n}"
+            },
+            "url": "{{baseUrl}}/api/fiscalizacoes"
+          }
+        },
+        {
+          "name": "Atualizar fiscalizacao",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Entregue\",\n  \"data_envio\": \"2026-04-13\",\n  \"numero_ar\": \"BN 315 965 870 BR\"\n}"
+            },
+            "url": "{{baseUrl}}/api/fiscalizacoes/{{fiscalizacaoId}}"
+          }
+        },
+        {
+          "name": "Excluir fiscalizacao",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/fiscalizacoes/{{fiscalizacaoId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Indeferimentos",
+      "item": [
+        {
+          "name": "Listar indeferimentos",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/indeferimentos?limit=50&offset=0" }
+        },
+        {
+          "name": "Buscar indeferimento por id",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/indeferimentos/{{indeferimentoId}}" }
+        },
+        {
+          "name": "Criar indeferimento",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{indeferimentoId}}\",\n  \"num_requerimento\": \"20260002938-IAU\",\n  \"status\": \"Não É Preciso Notificar\",\n  \"portaria\": \"601/2026\",\n  \"data_publicacao\": \"2026-03-17\",\n  \"motivo\": \"VAZÃO SOLICITADA ACIMA DA DISPONIBILIDADE HÍDRICA\",\n  \"nome\": \"Estância Orchestra - Arandu\",\n  \"municipio\": \"Arandu\"\n}"
+            },
+            "url": "{{baseUrl}}/api/indeferimentos"
+          }
+        },
+        {
+          "name": "Atualizar indeferimento",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notificar\": \"SIM\",\n  \"fiscal\": \"Fiscal Demo\",\n  \"acao_final\": \"Comunicado enviado\"\n}"
+            },
+            "url": "{{baseUrl}}/api/indeferimentos/{{indeferimentoId}}"
+          }
+        },
+        {
+          "name": "Excluir indeferimento",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/indeferimentos/{{indeferimentoId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Listar users",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/users?limit=50&offset=0" }
+        },
+        {
+          "name": "Buscar user por id",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/users/{{userId}}" }
+        },
+        {
+          "name": "Criar user",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{userId}}\",\n  \"email\": \"usuario.demo@exemplo.com\",\n  \"name\": \"Usuário Demo\",\n  \"password_hash\": \"$2y$10$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\",\n  \"admin\": 0,\n  \"must_change_password\": 1,\n  \"verified\": 0\n}"
+            },
+            "url": "{{baseUrl}}/api/users"
+          }
+        },
+        {
+          "name": "Atualizar user",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Usuário Demo Atualizado\",\n  \"admin\": 1,\n  \"verified\": 1\n}"
+            },
+            "url": "{{baseUrl}}/api/users/{{userId}}"
+          }
+        },
+        {
+          "name": "Excluir user",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/users/{{userId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Rate Limits",
+      "item": [
+        {
+          "name": "Listar rate limits",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/rate-limits?limit=50&offset=0" }
+        },
+        {
+          "name": "Buscar rate limit por chave composta",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/rate-limits/{{scope}}/{{ipHash}}" }
+        },
+        {
+          "name": "Criar rate limit",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"scope\": \"{{scope}}\",\n  \"ip_hash\": \"{{ipHash}}\",\n  \"count\": 1,\n  \"reset_at\": \"2026-04-23 23:59:59\"\n}"
+            },
+            "url": "{{baseUrl}}/api/rate-limits"
+          }
+        },
+        {
+          "name": "Atualizar rate limit",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"count\": 2,\n  \"reset_at\": \"2026-04-24 00:30:00\"\n}"
+            },
+            "url": "{{baseUrl}}/api/rate-limits/{{scope}}/{{ipHash}}"
+          }
+        },
+        {
+          "name": "Excluir rate limit",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/rate-limits/{{scope}}/{{ipHash}}" }
+        }
+      ]
+    }
+  ]
+}
